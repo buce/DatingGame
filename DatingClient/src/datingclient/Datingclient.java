@@ -31,11 +31,8 @@ public class Datingclient {
         
         for(int l=0;l<20;l++){
         String temp;
-        if(l==16){
-            temp ="[1, 0, 1.0, 1.0, 0.0, 1, 0, 0, 0, 1, 0, 0]";
-        }else{
         temp = generateRandomCandidates(noOfArrtributes).getValues().toString();
-        }
+        
         oS.socketWrite(temp);
         System.out.println(temp);
         System.out.println(oS.socketRead());
