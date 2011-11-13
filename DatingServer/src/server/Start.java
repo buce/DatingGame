@@ -117,11 +117,15 @@ public class Start {
         
         private static List<Double> parseCandidate(String Candidate){
             String[] list = Candidate.substring(1, Candidate.length()-1).split(",");
+            assert(list.length==noOfArrtributes) : "Number of values passed for candidate is not equal to N but " + list.length+"\nCandidate "+Candidate;
+            
             DecimalFormat fourDecimalFormat = new DecimalFormat("#.####");
             List<Double> oC = new ArrayList<Double>();
             
             for(int i=0;i<noOfArrtributes;i++){
-                  oC.add(Double.valueOf(fourDecimalFormat.format(Double.valueOf(list[i]))));
+                assert((Double.valueOf(fourDecimalFormat.format(Double.valueOf(list[i]))))>=-1) : "Candidate value is less than -1!!!\nCandidate "+Candidate;
+                assert((Double.valueOf(fourDecimalFormat.format(Double.valueOf(list[i]))))<=1) : "Candidate value is greater than 1!!!\nCandidate "+Candidate;
+                oC.add(Double.valueOf(fourDecimalFormat.format(Double.valueOf(list[i]))));
             }
             return oC;
         }
